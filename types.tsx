@@ -25,11 +25,23 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+  AddScreen: undefined;
+  AnswerScreen: undefined;
+  ProfileScreen: undefined;
 };
 
 export type RootTabScreenProps<Screen extends keyof RootTabParamList> = CompositeScreenProps<
   BottomTabScreenProps<RootTabParamList, Screen>,
   NativeStackScreenProps<RootStackParamList>
 >;
+
+interface IQuestion {
+  text:string;
+  count: number;
+}
+
+export interface IOptionalQuestion {
+  id: string;
+  question: string;
+  options: IQuestion[]
+}
