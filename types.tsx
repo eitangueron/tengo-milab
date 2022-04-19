@@ -35,7 +35,7 @@ export type RootTabScreenProps<Screen extends keyof RootTabParamList> = Composit
   NativeStackScreenProps<RootStackParamList>
 >;
 
-interface IQuestion {
+export interface IQuestion {
   text:string;
   count: number;
 }
