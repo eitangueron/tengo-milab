@@ -59,7 +59,7 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="AddScreen"
+      initialRouteName="AnswerScreen"
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>

@@ -44,7 +44,7 @@ export default function OptionsQuestion({
               {option.text}
             </Text>
               {answered ? <Text style={styles.option}> Answers: {option.count}</Text> : null}
-            {answered ? <Text style={styles.option}>Precent: {calcOptionPrcentage(option.count)}%</Text> : null}
+            {answered ? <Text style={{...styles.precent, width:calcOptionPrcentage(option.count) + '%' }}>{calcOptionPrcentage(option.count)}%</Text> : null}
           </>
         ))}
       </Card>
@@ -62,4 +62,12 @@ const styles = StyleSheet.create({
     // textAlign: "center",
     margin: 10,
   },
+  precent: {
+    // textAlign: "center",
+    // fontSize:12,
+    backgroundColor: 'green',
+    width: '30%',
+    opacity:0.7,
+  },
+
 });
