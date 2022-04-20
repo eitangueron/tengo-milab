@@ -4,18 +4,29 @@ import Colors from "../constants/Colors";
 import { MonoText } from "./StyledText";
 import { View } from "./Themed";
 import { Text, Card, Button, Icon } from "@rneui/themed";
-import {IOptionalQuestion, IQuestion} from '../types'
+import { IOptionalQuestion, IQuestion } from "../types";
 import { useState } from "react";
 
-export default function OptionsQuestion({question, options, id}: IOptionalQuestion) {
-
+export default function OptionsQuestion({
+  question,
+  options,
+  id,
+}: IOptionalQuestion) {
   const [answered, setAnswered] = useState(false);
 
-  const answerQuestion = (option:IQuestion) => {
-    if(answered){ return }
-    console.log(++option.count)
-    setAnswered(true);
+  const totalCount = options.reduce((acc, option) => acc + option.count, 0);
+
+  function calcOptionPrcentage(count: number) {
+    return ((count / totalCount) * 100).toFixed(2);
   }
+
+  const answerQuestion = (option: IQuestion) => {
+    if (answered) {
+      return;
+    }
+    console.log(++option.count);
+    setAnswered(true);
+  };
 
   return (
     <View>
@@ -23,7 +34,19 @@ export default function OptionsQuestion({question, options, id}: IOptionalQuesti
         <Card.Title>{question}</Card.Title>
         <Card.Divider />
         {/* single click - should send action to DB and display*/}
-        {options.map( (option,i) => <Text key={id+i} style={styles.option} onPress={() => answerQuestion(option)}>{option.text}{answered ? option.count : null}</Text>)}
+        {options.map((option, i) => (
+          <>
+            <Text
+              key={id + i}
+              style={styles.option}
+              onPress={() => answerQuestion(option)}
+            >
+              {option.text}
+            </Text>
+              {answered ? <Text style={styles.option}> Answers: {option.count}</Text> : null}
+            {answered ? <Text style={styles.option}>Precent: {calcOptionPrcentage(option.count)}%</Text> : null}
+          </>
+        ))}
       </Card>
     </View>
   );
@@ -35,8 +58,8 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
   },
-  option:{
+  option: {
     // textAlign: "center",
-    margin:10
-  }
+    margin: 10,
+  },
 });

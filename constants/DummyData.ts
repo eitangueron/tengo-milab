@@ -5,15 +5,15 @@ export const dummyData: IOptionalQuestion[] = [
     id: "d2d1b095-8136-4a5f-996a-121374a867f4",
     options: [
       {
-        count: 0,
+        count: 25,
         text: "Eitan",
       },
       {
-        count: 0,
+        count: 20,
         text: "Ido",
       },
       {
-        count: 0,
+        count: 5,
         text: "Yuval",
       },
     ],
@@ -27,11 +27,11 @@ export const dummyData: IOptionalQuestion[] = [
         text: "None",
       },
       {
-        count: 0,
+        count: 30,
         text: "Less than 3",
       },
       {
-        count: 0,
+        count: 70,
         text: "As many as u want",
       },
     ],
