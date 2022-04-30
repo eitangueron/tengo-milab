@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
+    color:'white',
   },
   separator: {
     marginVertical: 30,
@@ -40,8 +41,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf:'flex-end',
-    marginEnd:15,
-    marginBottom:20,
+    marginEnd:'10%',
+    marginBottom:'10%',
     textAlign:'center',
     padding: 10,
     borderRadius: 100,

@@ -61,7 +61,7 @@ function RootNavigator() {
             </Pressable>
           ),
           headerLeft: () => (
-            <Text>Tengo .</Text>
+            <Text style={{fontSize:25, fontWeight:'bold'}}>Tengo .</Text>
           )
         })}/>
       <Stack.Screen name="AddScreen" component={AddScreen} options={{title:""}}/>
@@ -74,6 +74,18 @@ function RootNavigator() {
     </Stack.Navigator>
   );
 }
+
+
+
+
+
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------  //
+
+
+
+
+
 
 /**
  * A bottom tab navigator displays tab buttons on the bottom of the display to switch screens.
