@@ -48,7 +48,7 @@ function RootNavigator() {
           tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
           headerRight: () => (
             <Pressable
-              onPress={() => navigation.navigate('Modal')}
+              onPress={() => navigation.navigate('ProfileScreen')}
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
               })}>
@@ -65,11 +65,12 @@ function RootNavigator() {
           )
         })}/>
       <Stack.Screen name="AddScreen" component={AddScreen} options={{title:""}}/>
+      <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{title:""}}/>
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
 
-      <Stack.Group screenOptions={{ presentation: 'card' }}>
-        <Stack.Screen name="Modal" component={ModalScreen} />
-      </Stack.Group>
+      {/* <Stack.Group screenOptions={{ presentation: 'card' }}>
+        <Stack.Screen name="ProfileScreen" component={ProfileScreen} />
+      </Stack.Group> */}
     </Stack.Navigator>
   );
 }
