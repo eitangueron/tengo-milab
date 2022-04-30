@@ -1,11 +1,12 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 import Colors from "../constants/Colors";
 import { MonoText } from "./StyledText";
 import { View } from "./Themed";
 import { Text, Card, Button, Icon } from "@rneui/themed";
 import { IOptionalQuestion, IQuestion } from "../types";
-import { useState } from "react";
+import React, { useState } from "react";
+import { Chip } from "@rneui/base";
 
 export default function OptionsQuestion({
   question,
@@ -29,7 +30,7 @@ export default function OptionsQuestion({
   };
 
   return (
-    <View>
+   <View>
       <Card containerStyle={{ marginTop: 15 }}>
         <Card.Title>{question}</Card.Title>
         <Card.Divider />
@@ -43,8 +44,8 @@ export default function OptionsQuestion({
             >
               {option.text}
             </Text>
-              {answered ? <Text style={styles.option}> Answers: {option.count}</Text> : null}
-            {answered ? <Text style={{...styles.precent, width:calcOptionPrcentage(option.count) + '%' }}>{calcOptionPrcentage(option.count)}%</Text> : null}
+            {answered ? <Text style={styles.option}> Answers: {option.count}</Text> : null}
+            {answered ? <Text style={{ ...styles.precent, width: calcOptionPrcentage(option.count) + '%' }}>{calcOptionPrcentage(option.count)}%</Text> : null}
           </>
         ))}
       </Card>
@@ -69,5 +70,4 @@ const styles = StyleSheet.create({
     width: '30%',
     opacity:0.7,
   },
-
 });
