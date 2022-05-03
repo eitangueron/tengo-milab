@@ -66,7 +66,7 @@ function RootNavigator() {
           )
         })}/>
       <Stack.Screen name="AddScreen" component={AddScreen} options={{title:""}}/>
-      <Stack.Screen name="ThankYouScreen" component={ThankYouScreen}/>
+      <Stack.Screen name="ThankYouScreen" component={ThankYouScreen} options={{title:""}}/>
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{title:""}}/>
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
 

@@ -2,7 +2,7 @@ import { Button } from '@rneui/base';
 import { StyleSheet } from 'react-native';
 import { Text, View } from '../components/Themed';
 
-export default function ThankYouScreen(navigation) {
+export default function ThankYouScreen({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Thanks for asking a question</Text>
