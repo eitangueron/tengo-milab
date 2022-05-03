@@ -36,7 +36,6 @@ const linking: LinkingOptions<RootStackParamList> = {
       NotFound: '*',
       AnswerScreen: 'AnswerScreen',
       AddScreen: 'AddScreen',
-      ThankYouScreen: 'ThankYouScreen',
     },
   },
 };

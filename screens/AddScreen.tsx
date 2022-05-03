@@ -8,10 +8,19 @@ import { v4 as uuidv4 } from 'uuid';
 
 import { Button, Input } from '@rneui/themed';
 import { dummyData } from "../constants/DummyData";
+import React, { useState } from "react";
+import ThankYouOverlay from "../components/ThankYouOverlay";
 
 export default function AddScreen({
   navigation,
 }: RootTabScreenProps<"AddScreen">) {
+
+  const [visible, setVisible] = useState(false);
+
+  const toggleOverlay = () => {
+    setVisible(!visible);
+  };
+  
   return (
     <View style={styles.container}>
 
@@ -42,14 +51,15 @@ export default function AddScreen({
                 },
               ]
             }
-            console.log(result) // change to save to DB
+            console.log(result) // change to save to DB and add to try catch
+            toggleOverlay()
             actions.resetForm()
-            navigation.navigate('ThankYouScreen')
           }
         }
       >
         {({ handleChange, handleBlur, handleSubmit, values }) => (
             <>
+            <ThankYouOverlay navigation={navigation} visible={visible} toggleOverlay={() => toggleOverlay()} ></ThankYouOverlay>
             <Input
               onChangeText={handleChange("question")}
               onBlur={handleBlur("question")}
