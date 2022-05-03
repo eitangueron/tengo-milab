@@ -5,10 +5,9 @@ import { dummyData } from '../constants/DummyData';
 import OptionsQuestion from '../components/OptionsQuestion';
 import { IOptionalQuestion } from '../types';
 import React from 'react';
-import { Button } from '@rneui/base';
 
 
-export default function AnswerScreen( {navigation} ) {
+export default function AnswerScreen( {navigation}: {navigation:any} ) {
   return (
     <View style={styles.container}>
       <ScrollView>

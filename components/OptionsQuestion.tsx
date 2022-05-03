@@ -36,9 +36,8 @@ export default function OptionsQuestion({
         <Card.Divider />
         {/* single click - should send action to DB and display*/}
         {options.map((option, i) => (
-          <View style={styles.option}>
+          <View style={styles.option} key={id + i}>
             <Text
-              key={id + i}
               style={{ margin: 10, textAlign: "center" }}
               onPress={() => answerQuestion(option)}
             >
