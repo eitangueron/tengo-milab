@@ -30,23 +30,38 @@ export default function OptionsQuestion({
   };
 
   return (
-   <View>
-      <Card containerStyle={{ marginTop: 15 }}>
+    <View>
+      <Card containerStyle={styles.container}>
         <Card.Title>{question}</Card.Title>
         <Card.Divider />
         {/* single click - should send action to DB and display*/}
         {options.map((option, i) => (
-          <>
+          <View style={styles.option}>
             <Text
               key={id + i}
-              style={styles.option}
+              style={{ margin: 10, textAlign: "center" }}
               onPress={() => answerQuestion(option)}
             >
               {option.text}
             </Text>
-            {answered ? <Text style={styles.option}> Answers: {option.count}</Text> : null}
-            {answered ? <Text style={{ ...styles.precent, width: calcOptionPrcentage(option.count) + '%' }}>{calcOptionPrcentage(option.count)}%</Text> : null}
-          </>
+
+            {answered ? (
+              <>
+                <Text style={{ margin: 10, textAlign: "center" }}>
+                  {" "}
+                  Answers: {option.count}
+                </Text>
+                <Text
+                  style={{
+                    ...styles.precent,
+                    width: calcOptionPrcentage(option.count) + "%",
+                  }}
+                >
+                  {calcOptionPrcentage(option.count)}%
+                </Text>
+              </>
+            ) : null}
+          </View>
         ))}
       </Card>
     </View>
@@ -55,19 +70,25 @@ export default function OptionsQuestion({
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 15,
+    // borderWidth: 3,
     // flex: 1,
     // alignItems: 'center',
     // justifyContent: 'center',
   },
   option: {
-    // textAlign: "center",
+    // borderRadius: 2,
+    // fontWeight:'bold',
+    borderColor: "black",
+    borderWidth: 0.5,
+    textAlign: "center",
     margin: 10,
   },
   precent: {
     // textAlign: "center",
     // fontSize:12,
-    backgroundColor: 'green',
-    width: '30%',
-    opacity:0.7,
+    backgroundColor: "green",
+    width: "30%",
+    opacity: 0.7,
   },
 });

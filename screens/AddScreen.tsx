@@ -44,6 +44,7 @@ export default function AddScreen({
             }
             console.log(result) // change to save to DB
             actions.resetForm()
+            navigation.navigate('ThankYouScreen')
           }
         }
       >

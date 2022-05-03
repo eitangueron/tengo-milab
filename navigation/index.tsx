@@ -18,6 +18,7 @@ import AnswerScreen from '../screens/AnswerScreen';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ProfileScreen from '../screens/ProfileScreen';
+import ThankYouScreen from '../screens/ThankYouScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -65,6 +66,7 @@ function RootNavigator() {
           )
         })}/>
       <Stack.Screen name="AddScreen" component={AddScreen} options={{title:""}}/>
+      <Stack.Screen name="ThankYouScreen" component={ThankYouScreen}/>
       <Stack.Screen name="ProfileScreen" component={ProfileScreen} options={{title:""}}/>
       <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
 
