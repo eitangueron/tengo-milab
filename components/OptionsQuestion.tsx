@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     display:'flex',
     flex: 1,
-    width:'100%'
+    // width:'100%'
   },
   precent: {
     // textAlign: "center",

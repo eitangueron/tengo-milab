@@ -15,10 +15,8 @@ import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
 import AddScreen from '../screens/AddScreen';
 import AnswerScreen from '../screens/AnswerScreen';
-import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import ThankYouScreen from '../components/ThankYouOverlay';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 
@@ -46,7 +44,7 @@ function RootNavigator() {
       <Stack.Screen name="AnswerScreen" component={AnswerScreen} options={({ navigation }: RootTabScreenProps<'AnswerScreen'>) => ({
           title: '',
           tabBarActiveTintColor: Colors[colorScheme].tint,
-          tabBarIcon: ({ color }) => <TabBarIcon name="plus" color={color} />,
+          tabBarIcon: ({ color }: {color:any}) => <TabBarIcon name="plus" color={color} />,
           headerRight: () => (
             <Pressable
               onPress={() => navigation.navigate('ProfileScreen')}
