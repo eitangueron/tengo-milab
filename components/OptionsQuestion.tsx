@@ -1,4 +1,4 @@
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, Touchable, TouchableOpacity } from "react-native";
 
 import Colors from "../constants/Colors";
 import { MonoText } from "./StyledText";
@@ -36,31 +36,30 @@ export default function OptionsQuestion({
         <Card.Divider />
         {/* single click - should send action to DB and display*/}
         {options.map((option, i) => (
-          <View style={styles.option} key={id + i}>
-            <Text
-              style={{ margin: 10, textAlign: "center" }}
-              onPress={() => answerQuestion(option)}
-            >
-              {option.text}
-            </Text>
+          <TouchableOpacity style={styles.option} key={id + i} onPress={() => answerQuestion(option)}>
+            {/* <View style={{display:'flex', flex:1}}> */}
+              <Text style={{margin: 10, alignSelf:'center', textAlign:'center'}}>{option.text}</Text>
 
             {answered ? (
-              <>
-                <Text style={{ margin: 10, textAlign: "center" }}>
-                  {" "}
-                  Answers: {option.count}
-                </Text>
-                <Text
-                  style={{
-                    ...styles.precent,
-                    width: calcOptionPrcentage(option.count) + "%",
-                  }}
-                >
-                  {calcOptionPrcentage(option.count)}%
-                </Text>
-              </>
+                <Text style={{margin: 10, alignSelf:'flex-end', textAlign:'center'}}>{calcOptionPrcentage(option.count)}%</Text>
             ) : null}
-          </View>
+            {/* </View> */}
+            
+            {/* 
+            {answered ? (
+                <><Text style={{ margin: 10, textAlign: 'right' }}>
+                {" "}
+                Answers: {option.count}
+              </Text><Text
+                style={{
+                  ...styles.precent,
+                  width: calcOptionPrcentage(option.count) + "%",
+                }}
+              >
+                  {calcOptionPrcentage(option.count)}%
+                </Text></>
+            ) : null} */}
+          </TouchableOpacity>
         ))}
       </Card>
     </View>
@@ -82,6 +81,12 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     textAlign: "center",
     margin: 10,
+    borderRadius: 30,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    display:'flex',
+    flex: 1,
+    width:'100%'
   },
   precent: {
     // textAlign: "center",
@@ -91,3 +96,5 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
 });
+
+
