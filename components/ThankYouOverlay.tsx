@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Button, Overlay } from '@rneui/themed';
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, Image } from 'react-native';
 
 export default function ThankYouOverlay({ navigation, visible, toggleOverlay } : {navigation:any, visible:boolean, toggleOverlay:()=>void}) {
 
   return (
     <Overlay isVisible={visible} style={styles.container}>
+      <Image source={require('../assets/images/thanksYoga.png')} />
       <Text style={styles.textPrimary}>Thanks for asking a question</Text>
       <Text style={styles.textSecondary}>
         We’ll let you know when other moms start answering
@@ -54,5 +55,10 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     height: 30,
     width: "80%",
+  },
+  item: {
+    aspectRatio: 1,
+    width: '100%',
+    flex: 1,
   },
 });
