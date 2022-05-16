@@ -6,12 +6,19 @@ import OptionsQuestion from "../components/OptionsQuestion";
 import { IOptionalQuestion } from "../types";
 import React from "react";
 import { FAB } from "@rneui/base";
+import { useNavigation } from "@react-navigation/native";
+// import RNFS from 'react-native-fs';
+// const axios = require('axios').default;
 
-export default function AnswerScreen({ navigation }: { navigation: any }) {
+export default function AnswerScreen({ props, }: {  props:any, }) {
+
+  const navigation = useNavigation();
+  // console.log(props.allQuestions.setAllQuestions)
+  const {allQuestions, setAllQuestions} = props.allQuestions
   return (
     <View style={styles.container}>
       <ScrollView>
-        {dummyData.map((questionData: IOptionalQuestion) => (
+        {allQuestions.map((questionData: IOptionalQuestion) => (
           <OptionsQuestion key={questionData.id} {...questionData} />
         ))}
       </ScrollView>

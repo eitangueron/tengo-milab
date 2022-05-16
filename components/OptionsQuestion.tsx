@@ -38,11 +38,14 @@ export default function OptionsQuestion({
         {options.map((option, i) => (
           <TouchableOpacity style={styles.option} key={id + i} onPress={() => answerQuestion(option)}>
             {/* <View style={{display:'flex', flex:1}}> */}
+            {/* <View style={{backgroundColor: answered? 'green' : 'white'}}> */}
+
               <Text style={{margin: 10, alignSelf:'center', textAlign:'center'}}>{option.text}</Text>
 
             {answered ? (
-                <Text style={{margin: 10, alignSelf:'flex-end', textAlign:'center'}}>{calcOptionPrcentage(option.count)}%</Text>
-            ) : null}
+              <Text style={{margin: 10, alignSelf:'flex-end', textAlign:'center'}}>{calcOptionPrcentage(option.count)}%</Text>
+              ) : null}
+              {/* </View> */}
             {/* </View> */}
             
             {/* 

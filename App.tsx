@@ -5,9 +5,10 @@ import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';
 import Navigation from './navigation';
 import { dummyData } from "./constants/DummyData";
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { IOptionalQuestion } from './types';
 import React from 'react';
+import axios from 'axios';
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -15,16 +16,22 @@ export default function App() {
 
   const [ allQuestions, setAllQuestions ] = useState(dummyData)
 
-  const addQuestionToAllQuestions = (newQuestion: IOptionalQuestion) => {
-    setAllQuestions( [...allQuestions, newQuestion])
-  }
+  // const getData = async () => {
+  //   const res = await axios.get('./constants/DummyData.json')
+  //   console.log(res.data)
+  //   setAllQuestions(res.data)
+  // }
+
+  // useEffect(()=>{
+  //   getData()
+  // },[])
 
   if (!isLoadingComplete) {
     return null;
   } else {
     return (
       <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme}/>
+        <Navigation colorScheme={colorScheme} allQuestions={allQuestions} setAllQuestions={setAllQuestions}/>
         <StatusBar />
       </SafeAreaProvider>
     );
