@@ -6,18 +6,18 @@ export const dummyData: IOptionalQuestion[] = [
     options: [
       {
         count: 25,
-        text: "Eitan",
+        text: "Bjorn",
       },
       {
         count: 20,
-        text: "Ido",
+        text: "Muzzi",
       },
       {
         count: 5,
-        text: "Yuval",
+        text: "Bugaboo",
       },
     ],
-    question: "What’s my name?",
+    question: "What stroller do you reccomend for 2nd floor, no elevator?",
   },
   {
     id: "aa08740d-8dd0-4ff0-af38-1d49f4297c0b",
@@ -35,6 +35,24 @@ export const dummyData: IOptionalQuestion[] = [
         text: "As many as u want",
       },
     ],
-    question: "How many cups of coffee should I drink a day?",
+    question: "How many cups of coffee should I drink a day, 5th months pregnant?",
+  },
+  {
+    id: "aa08742F-8GG0-8ff0-af38-1d49f4297c0b",
+    options: [
+      {
+        count: 75,
+        text: "I wouldn't take the risk",
+      },
+      {
+        count: 30,
+        text: "not impotant",
+      },
+      {
+        count: 14,
+        text: "don't know",
+      },
+    ],
+    question: "Due to mixed thoughts regarding Amniocentesis, What should I do?",
   },
 ];
