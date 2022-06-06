@@ -29,6 +29,14 @@ export default function OptionsQuestion({
     setAnswered(true);
   };
 
+  const [optionChosen, setOptionChosen] = useState(5);
+
+  const chose = (i:number) => {
+    if (optionChosen===5) {
+      setOptionChosen(i);
+    }
+  };
+
   return (
     <View>
       <Card containerStyle={styles.container}>
@@ -36,32 +44,34 @@ export default function OptionsQuestion({
         <Card.Divider />
         {/* single click - should send action to DB and display*/}
         {options.map((option, i) => (
-          <TouchableOpacity style={styles.option} key={id + i} onPress={() => answerQuestion(option)}>
-            {/* <View style={{display:'flex', flex:1}}> */}
-            {/* <View style={{backgroundColor: answered? 'green' : 'white'}}> */}
-
-              <Text style={{margin: 10, alignSelf:'center', textAlign:'center'}}>{option.text}</Text>
+          <TouchableOpacity
+            style={{
+              ...styles.option,
+              backgroundColor: optionChosen == i ? "gray" : "",
+            }}
+            key={id + i}
+            onPress={() => {
+              chose(i);
+              answerQuestion(option);
+            }}
+          >
+            <Text
+              style={{ margin: 10, alignSelf: "center", textAlign: "center" }}
+            >
+              {option.text}
+            </Text>
 
             {answered ? (
-              <Text style={{margin: 10, alignSelf:'flex-end', textAlign:'center'}}>{calcOptionPrcentage(option.count)}%</Text>
-              ) : null}
-              {/* </View> */}
-            {/* </View> */}
-            
-            {/* 
-            {answered ? (
-                <><Text style={{ margin: 10, textAlign: 'right' }}>
-                {" "}
-                Answers: {option.count}
-              </Text><Text
+              <Text
                 style={{
-                  ...styles.precent,
-                  width: calcOptionPrcentage(option.count) + "%",
+                  margin: 10,
+                  alignSelf: "flex-end",
+                  textAlign: "center",
                 }}
               >
-                  {calcOptionPrcentage(option.count)}%
-                </Text></>
-            ) : null} */}
+                {calcOptionPrcentage(option.count)}%
+              </Text>
+            ) : null}
           </TouchableOpacity>
         ))}
       </Card>
@@ -87,7 +97,7 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     flexDirection: "row",
     flexWrap: "wrap",
-    display:'flex',
+    display: "flex",
     flex: 1,
     // width:'100%'
   },
@@ -99,5 +109,3 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
 });
-
-

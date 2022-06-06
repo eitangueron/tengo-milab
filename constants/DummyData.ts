@@ -54,5 +54,23 @@ export const dummyData: IOptionalQuestion[] = [
       },
     ],
     question: "Due to mixed thoughts regarding Amniocentesis, What should I do?",
+  }, 
+  {
+    id: "aa08742F-8GG0-8ff0-af38-1e4f42933c1b",
+    options: [
+      {
+        count: 30,
+        text: "As much as I used to",
+      },
+      {
+        count: 20,
+        text: "1-3",
+      },
+      {
+        count: 5,
+        text: "I don't",
+      },
+    ],
+    question: "How often do you work out?",
   },
 ];
